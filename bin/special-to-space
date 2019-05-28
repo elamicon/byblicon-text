@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import fileinput
+import sys
+import re
+
+special_del = re.compile("[]") # guessMarkers
+special_ws = re.compile("[]") # wildcardChar and FractureMarker
+
+for line in fileinput.input():
+	sys.stdout.write(special_ws.sub(" ", special_del.sub("", line)))
